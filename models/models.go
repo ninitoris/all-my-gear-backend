@@ -38,25 +38,48 @@ type User struct {
 
 // Gearitem schema
 type Gearitem struct {
-    GearitemID      int64           `json:"GearitemID"`
-    Customname      NullString      `json:"Customname"`
-    Category        NullString      `json:"Category"`
-    Brandname       NullString      `json:"Brandname"`
-    Productname     NullString      `json:"Productname"`
-    WeightKG        sql.NullFloat64 `json:"WeightKG"`
-    Quantity        sql.NullInt32   `json:"Quantity"`
-    UserID          sql.NullInt32   `json:"UserID"`
-    Picture         NullString      `json:"Picture"`
-    Cost            NullString      `json:"Cost"`
-    TempfromCELC    sql.NullInt16   `json:"TempfromCELC"`
-    TempuptoCELC    sql.NullInt16   `json:"TempuptoCELC"`
-    Datepurchased   NullString      `json:"Datepurchased"`
-    Dateadded       NullString      `json:"Dateadded"`
-    Notes           NullString      `json:"Notes"`
+    GearitemID      int64           `json:"gearitemid"`
+    Customname      sql.NullString  `json:"customname"`
+    Category        sql.NullString  `json:"category"`
+    Brandname       sql.NullString  `json:"brandname"`
+    Productname     sql.NullString  `json:"productname"`
+    WeightKG        sql.NullFloat64 `json:"weightkg"`
+    Quantity        sql.NullInt32   `json:"quantity"`
+    UserID          sql.NullInt32   `json:"userid"`
+    Picture         sql.NullString  `json:"picture"`
+    Cost            sql.NullString  `json:"cost"`
+    TempfromCELC    sql.NullInt16   `json:"tempfromcelc"`
+    TempuptoCELC    sql.NullInt16   `json:"tempuptocelc"`
+    Datepurchased   sql.NullString  `json:"datepurchased"`
+    Dateadded       sql.NullString  `json:"dateadded"`
+    Notes           sql.NullString  `json:"notes"`
 }
 
+type Checklist struct {
+    Checklistid     int64           `json:"checklistid"`
+    Checklistname   sql.NullString  `json:"checklistname"`
+    Atctivitytype   sql.NullString  `json:"atctivitytype"`
+    Gearweight      sql.NullFloat64 `json:"gearweight"`
+    Datestart       sql.NullString  `json:"datestart"`
+    Dateend         sql.NullString  `json:"dateend"`
+    Tempfrom        sql.NullFloat64 `json:"tempfrom"`
+    Tempupto        sql.NullFloat64 `json:"tempupto"`
+}
 
+type Gearchecklistrelations struct {
+    Relationid      int64 `json:"relationid"`
+    Gearitemid      int64 `json:"gearitemid"`
+    Checklistid     int64 `json:"checklistid"`
+    Packagecheck    bool  `json:"packagecheck"`
+}
 /*
+"checklistname": "",
+"atctivitytype": "",
+"gearweight": "",
+"datestart": "",
+"dateend": "",
+"tempfrom": "",
+"tempupto": ""
 
     "GearitemID": "",
     "Customname": "",

@@ -23,5 +23,14 @@ func Router() *mux.Router {
     router.HandleFunc("/api/gearitem/{id}", middleware.UpdateGearitems).Methods("PUT", "OPTIONS")
     router.HandleFunc("/api/deletegearitem/{id}", middleware.DeleteGearitem).Methods("DELETE", "OPTIONS")
     
+    router.HandleFunc("/api/newchecklist", middleware.CreateChecklist).Methods("POST", "OPTIONS")
+    router.HandleFunc("/api/checklist", middleware.GetAllChecklists).Methods("GET", "OPTIONS")
+    router.HandleFunc("/api/checklist/{id}", middleware.GetChecklist).Methods("GET", "OPTIONS")
+    router.HandleFunc("/api/checklist/{id}", middleware.UpdateChecklist).Methods("PUT", "OPTIONS")
+    router.HandleFunc("/api/deletechecklist/{id}", middleware.DeleteChecklist).Methods("DELETE", "OPTIONS")
+
+    router.HandleFunc("/api/gearcheckrelations", middleware.GetAllGearCheckRelations).Methods("GET", "OPTIONS")
+    router.HandleFunc("/api/gearcheckrelations/{id}", middleware.GetRelationsByChecklistID).Methods("GET", "OPTIONS")
+
     return router
 }
